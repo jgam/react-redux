@@ -10,3 +10,10 @@ export function complete({complete, id}){
 
 //for asynchronous, redux-thunk libraries or react-saga libraries you use
 
+export function addTodo2(text) {  
+    return (dispatch) => {
+      return fetch("api/add.json").then(
+          res => res.json().then(data => dispatch(addTodo(data.status)))
+      );
+    };
+  }
